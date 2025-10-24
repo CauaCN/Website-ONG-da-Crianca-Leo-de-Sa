@@ -109,11 +109,6 @@ header {
 .main{
     padding-top:120px
 }
-.inicio{
-    height: 800px;
-    margin-bottom: 1rem;
-}
-
 .footer {
     color:var(--branco);
     background-color:var(--azul-escuro);
