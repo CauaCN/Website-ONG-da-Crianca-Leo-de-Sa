@@ -3,8 +3,6 @@
     --azul-claro: #00aeef;
     --azul-escuro: #1a237e;
     --preto: #1c1c1c;
-    --header-height: 100px;    
-    --header-space: 120px;     
 }
 
 @media (prefers-color-scheme: dark) { 
@@ -41,13 +39,11 @@ header {
     display:flex;
     align-items: center;
     width: 100%;
-    height: var(--header-height);
+    height: 100px;
     top:0;
     left:0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .header_cont{
@@ -111,9 +107,11 @@ header {
 }
 
 .main{
-    padding-top: var(--header-space);
-    padding-bottom: calc(var(--header-space)/2);
-    min-height: calc(100vh - (2 * var(--header-space)));
+    padding-top:120px
+}
+.inicio{
+    height: 800px;
+    margin-bottom: 1rem;
 }
 
 .footer {
@@ -152,6 +150,8 @@ header {
     transform: scale(1.2); 
     filter: brightness(1.2); 
 }
+
+
 @media (max-width: 480px){
     .logo{
         height: 64px;
@@ -243,4 +243,59 @@ header {
         background-color: #1a232e;
     }
 
+}
+
+
+/* Estilo do carrossel */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    max-height: 500px; 
+    object-fit: cover; 
+}
+
+
+.carousel-images img {
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-overlay {
+  position: absolute;
+  bottom: 0; /* fica na parte inferior */
+  left: 0;
+  width: 100%;
+  color: white;
+  margin: 10px 20px;
+  padding: 15px 10;
+}
+
+.carousel-btn {
+  background:#ffffff;
+  color: #000;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 20px;
+  padding: 14px 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.carousel-btn:hover {
+  background: #00aeef;
 }
