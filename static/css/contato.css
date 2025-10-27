@@ -1,3 +1,6 @@
+.container section{
+  background-color: transparent;
+}
 .contato {
     padding: 2.5rem 0;
 }

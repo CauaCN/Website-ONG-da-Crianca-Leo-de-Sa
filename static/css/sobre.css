@@ -1,10 +1,7 @@
 
 /* container */
 .containers {
-  width: 100%;
   min-height: 100vh;
-  background-color: var(--branco);
->>>>>>> 2352551 (atualização da página sobre)
   display: flex;
   flex-direction: column;
 }
@@ -60,7 +57,7 @@ p{
 
 /* nossa missão e imagem */
 .conteudo h2 {
-  color: #007b8f;
+  color: var(--azul-claro);
   margin: 30px 0 15px;
   border-left: 4px solid var(--azul-claro);
   padding-left: 10px;
