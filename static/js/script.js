@@ -6,3 +6,16 @@ mobile.addEventListener('click', () => {
     mobile.classList.toggle('open', isOpen);
     mobile.setAttribute('aria-expanded', String(isOpen));
 });
+
+const copiar = 
+document.getElementById('copiar');
+const chave =
+document.getElementById('chave').innerText;
+const msg = 
+document.getElementById('Msg_copiado');
+
+copiar.addEventListener('click', () => {
+    navigator.clipboard.writeText(chave);
+    msg.textContent = "Chave PIX copiada!";
+    setTimeout(() => (msg.textContent = ""),3000);
+});
