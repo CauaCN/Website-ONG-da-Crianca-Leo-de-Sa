@@ -10,7 +10,7 @@
 .conteudo {
   width: 100%;
   padding: 60px 10%;
-  background-color: var(--branco);
+  background-color: var(--text);
   border-radius: 10px;
 }
 

@@ -1,7 +1,7 @@
 
 /* Estilo do carrossel */
 .container{
-  background-color: var(--branco);
+  background-color: var(--text);
   border-radius: 10px;
   margin-top: 20px;
   padding: 10px;
@@ -44,8 +44,8 @@ header .container, footer .container {
 }
 
 .carousel-btn {
-  background:var(--branco);
-  color: var(--preto);
+  background:var(--text);
+  color: var(--fundo);
   font-size: 1.3rem;
   font-weight: 600;
   border: none;

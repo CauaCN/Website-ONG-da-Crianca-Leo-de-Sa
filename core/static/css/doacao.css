@@ -1,5 +1,5 @@
 .doacao{
-    background-color: var(--branco);
+    background-color: var(--text);
     border-radius: 10px;
     padding: 40px 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -16,7 +16,7 @@
     margin-bottom: 10px;
 }
 .texto_doacao p {
-    color: var(--preto);
+    color: var(--fundo);
     font-size: 1.1rem;
     line-height: 1.6;
     max-width: 700px;
@@ -37,7 +37,7 @@
 }
 #copiar {
     background-color: var(--azul-claro);
-    color: var(--branco);
+    color: var(--text);
     border:none;
     border-radius: 10px;
     padding: 10px 18px;
@@ -58,7 +58,7 @@
 .duvidas_doacao{
     margin-top: 12px;
     font-size: 0.95rem;
-    color: var(--preto);
+    color: var(--fundo);
     text-align: center;
 }
 
