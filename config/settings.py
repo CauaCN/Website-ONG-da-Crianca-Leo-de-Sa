@@ -3,27 +3,36 @@ Django settings for config project.
 ...
 """
 
+import os
 from pathlib import Path
-import os # Importar o módulo os para STATIC_ROOT
+from dotenv import load_dotenv
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Carregar variáveis do .env
+load_dotenv()
+
+# Paths
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# ----------------------------------------------------------------------
+# SEGURANÇA
+# ----------------------------------------------------------------------
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
+SECRET_KEY = os.getenv("SECRET_KEY")
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "***REMOVED***-w^&6%7o291xz+^2s))qiz*1txh2t=7q($0l-wealg#afe6a*=" # MANTENHA O VALOR COMPLETO ORIGINAL
+DEBUG = os.getenv("DEBUG") == "True"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # MUDEI PARA FALSE, ESSENCIAL EM PRODUÇÃO
+ALLOWED_HOSTS = [
+    "ongleodesa.pythonanywhere.com",
+    "127.0.0.1"
+]
 
-# CORREÇÃO DO DisallowedHost
-ALLOWED_HOSTS = ['ongleodesa.pythonanywhere.com', '127.0.0.1'] 
+CSRF_TRUSTED_ORIGINS = [
+    "https://ongleodesa.pythonanywhere.com",
+]
 
-
-# Application definition
+# ----------------------------------------------------------------------
+# APLICAÇÕES
+# ----------------------------------------------------------------------
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -47,11 +56,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "config.urls"
 
-# TEMPLATES (Versão Unificada e Correta)
+# ----------------------------------------------------------------------
+# TEMPLATES
+# ----------------------------------------------------------------------
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "core" / "templates"],
+        "DIRS": [
+            BASE_DIR / "core" / "templates"
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -66,9 +80,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+# ----------------------------------------------------------------------
+# BANCO DE DADOS
+# ----------------------------------------------------------------------
 
 DATABASES = {
     "default": {
@@ -77,46 +91,38 @@ DATABASES = {
     }
 }
 
+# ----------------------------------------------------------------------
+# INTERNACIONALIZAÇÃO
+# ----------------------------------------------------------------------
 
-# ... (Omitindo a validação de senha, que está correta) ...
-
-
-# Internationalization
-LANGUAGE_CODE = "en-us"
-TIME_ZONE = "UTC"
+LANGUAGE_CODE = "pt-br"
+TIME_ZONE = "America/Sao_Paulo"
 USE_I18N = True
 USE_TZ = True
 
-
 # ----------------------------------------------------------------------
-# STATIC FILES (CORREÇÃO DE DEPLOY)
+# ARQUIVOS ESTÁTICOS
 # ----------------------------------------------------------------------
 
-# 1. URL base para servir os arquivos estáticos (CSS/JS)
 STATIC_URL = "/static/"
 
-# 2. Diretórios onde o Django procura arquivos estáticos DURANTE O DESENVOLVIMENTO
+# Usa static dentro do core (só se existir)
 STATICFILES_DIRS = [
-    BASE_DIR / "core" / "static", # Garante que ele busca em core/static
+    BASE_DIR / "core" / "static"
 ]
 
-# 3. DIRETÓRIO ONDE O 'collectstatic' VAI COPIAR OS ARQUIVOS (NECESSÁRIO PARA PRODUÇÃO)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Media (uploads)
+# ----------------------------------------------------------------------
+# ARQUIVOS DE MÍDIA
+# ----------------------------------------------------------------------
+
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-# Outras configurações
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8000",
-    "https://localhost:8000",
-    "http://127.0.0.1:8000",
-    "https://127.0.0.1:8000",
-    "https://ongleodesa.pythonanywhere.com", # Adicionado para produção
-]
+# ----------------------------------------------------------------------
+# EMAIL (DESENVOLVIMENTO)
+# ----------------------------------------------------------------------
 
-# Email (Mantido no console para debug)
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-DEFAULT_FROM_EMAIL = "no-reply@localhost"
-DEFAULT_TO_EMAIL = "cauanovaes15@gmail.com"
+DEFAULT_FROM_EMAIL = "no-reply@example.com"
