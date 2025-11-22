@@ -1,9 +1,29 @@
+# Python
 __pycache__/
-*.pyc
-media/
-db.sqlite3
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ambiente virtual
 venv/
-.env
+.env/
+
+# Banco de dados local
 db.sqlite3
+
+# Mídias enviadas pelo usuário
+media/
+
+# Backups e arquivos pessoais
+.backups/
+
+# IDEs
+.vscode/
+.idea/
+
+# Ferramentas de limpeza
 bfg/
-#gitignore
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
